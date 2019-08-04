@@ -4,6 +4,9 @@ import 'package:flutter_wanandroid/net/Api.dart';
 import 'package:flutter_wanandroid/util/ToastUtil.dart';
 import 'package:flutter_wanandroid/model/home/home_banner_item_model.dart';
 import 'package:flutter_wanandroid/model/home/home_banner_model.dart';
+import 'view/BannerViewPage.dart';
+import 'view/HomeBanner.dart';
+import 'view/SwiperBanner.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -15,6 +18,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage>
     with AutomaticKeepAliveClientMixin {
   String data = "home";
+  HomeBannerModel homeBannerModel;
 
   @override
   void initState() {
@@ -24,15 +28,21 @@ class _HomePageState extends State<HomePage>
 
   @override
   Widget build(BuildContext context) {
-    return Text("$data");
+    return Container(
+        child: Column(
+      children: <Widget>[
+        HomeBanner(homeBannerModel, null),
+        SwiperBanner(homeBannerModel),
+      ],
+    ));
   }
 
   void _loadBannerData() {
     NetUtil.getInstance().get(Api.HOME_BANNER, (data) {
-      ToastUtil.show(data.toString());
+//      ToastUtil.show(data.toString());
 //      this.data = data.toString();
-      var homeBannerModel = HomeBannerModel.fromJson(data);
-      this.data = homeBannerModel.data.toString();
+      homeBannerModel = HomeBannerModel.fromJson(data);
+      this.data = homeBannerModel.data.elementAt(0).desc;
 
       setState(() {});
     });

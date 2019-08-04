@@ -35,19 +35,16 @@ class NetUtil {
   }
 
 //get请求
-  get(String url, Function successCallBack,
-      {params, Function errorCallBack}) async {
+  get(String url, Function successCallBack, {params, Function errorCallBack}) async {
     _requstHttp(url, successCallBack, GET, params, errorCallBack);
   }
 
   //post请求
-  post(String url, Function successCallBack,
-      {params, Function errorCallBack}) async {
+  post(String url, Function successCallBack, {params, Function errorCallBack}) async {
     _requstHttp(url, successCallBack, POST, params, errorCallBack);
   }
 
-  _requstHttp(String url, Function successCallBack,
-      [String method, FormData params, Function errorCallBack]) async {
+  _requstHttp(String url, Function successCallBack, [String method, FormData params, Function errorCallBack]) async {
     String errorMsg = '';
     int code;
 

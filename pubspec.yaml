@@ -25,7 +25,11 @@ dependencies:
   cupertino_icons: ^0.1.2
   dio: ^2.1.7
   fluttertoast: ^3.1.0
-
+  banner_view: ^1.1.2
+  # https://github.com/renefloor/flutter_cached_network_image
+  cached_network_image: ^0.8.0
+  # https://github.com/peng8350/flutter_pulltorefresh
+  pull_to_refresh: 1.1.6
 dev_dependencies:
   flutter_test:
     sdk: flutter
