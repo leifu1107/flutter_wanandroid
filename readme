@@ -1,3 +1,4 @@
 https://caijinglong.github.io/json2dart/index_ch.html
+//实体类命令
 flutter packages pub run build_runner watch
 flutter packages pub run build_runner build
