@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'home/HomePage.dart';
-
+import 'project/project_page.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -74,7 +74,7 @@ class _MyHomePageState extends State<AppPage> with TickerProviderStateMixin {
           controller: _pageController,
           children: <Widget>[
             HomePage(),
-            Text("b"),
+            ProjectPage(),
             Text("c"),
             Text("d"),
           ],

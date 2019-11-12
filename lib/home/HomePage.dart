@@ -1,15 +1,11 @@
-import 'dart:convert';
 
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_wanandroid/res/import_common.dart';
 import 'package:flutter_wanandroid/util/head_item.dart';
-import 'package:flutter_wanandroid/model/home/home_banner_item_model.dart';
 import 'package:flutter_wanandroid/model/home/home_banner_model.dart';
-import 'view/BannerViewPage.dart';
-import 'view/HomeBanner.dart';
-import 'view/SwiperBanner.dart';
+import 'view/swiperbanner.dart';
 import 'package:flutter_wanandroid/model/home/home_article_list_model.dart';
+import 'package:flutter_wanandroid/home/view/item_home_article.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -53,7 +49,14 @@ class _HomePageState extends State<HomePage>
               extra: "更多",
             )),
             SliverFixedExtentList(
-              delegate: SliverChildBuilderDelegate(_buildListItem,
+              delegate: SliverChildBuilderDelegate(
+                  (context, index) => ItemHomeArticle(
+                        title: homeArticleListModel.data.datas[index].title,
+                        leftSubTitle:
+                            "作者:${homeArticleListModel.data.datas[index].author}",
+                        rightSubTitle:
+                            "时间:${homeArticleListModel.data.datas[index].niceDate}",
+                      ),
                   childCount: homeArticleListModel.data.size),
               itemExtent: 70,
             )
