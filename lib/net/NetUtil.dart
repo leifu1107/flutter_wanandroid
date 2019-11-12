@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 import 'dart:convert';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -6,12 +5,12 @@ import 'Api.dart';
 
 class NetUtil {
   static final debug = false;
-  static BuildContext context = null;
-  static final String GET = "get";
-  static final String POST = "post";
+  //static BuildContext context = null;
+  static const String GET = "get";
+  static const String POST = "post";
 
-  static final String DATA = "data";
-  static final String CODE = "errorCode";
+  static const String DATA = "data";
+  static const String CODE = "errorCode";
 
 //   Dio dio;
 

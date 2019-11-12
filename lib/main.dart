@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'home/HomePage.dart';
-import 'project/project_page.dart';
+import 'package:flutter_wanandroid/ui/home/page/home_page.dart';
+import 'ui/project/page/project_page.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
