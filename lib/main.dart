@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_wanandroid/ui/home/page/home_page.dart';
+import 'package:flutter_wanandroid/ui/my/page/my_page.dart';
 import 'ui/project/page/project_page.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -35,7 +37,7 @@ class AppPage extends StatefulWidget {
 
 class _MyHomePageState extends State<AppPage> with TickerProviderStateMixin {
   List<BottomNavigationBarItem> _bottomTabs = [];
-  List tabDatas = [
+  List tabData = [
     {
       'text': Text(
         "主页",
@@ -44,7 +46,7 @@ class _MyHomePageState extends State<AppPage> with TickerProviderStateMixin {
     },
     {'text': Text("项目"), 'icon': Icon(Icons.local_parking)},
     {'text': Text("体系"), 'icon': Icon(Icons.title)},
-    {'text': Text("导航"), 'icon': Icon(Icons.airplanemode_active)}
+    {'text': Text("我的"), 'icon': Icon(Icons.airplanemode_active)}
   ];
 
   PageController _pageController;
@@ -53,10 +55,10 @@ class _MyHomePageState extends State<AppPage> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    for (int i = 0; i < tabDatas.length; i++) {
+    for (int i = 0; i < tabData.length; i++) {
       _bottomTabs.add(BottomNavigationBarItem(
-        title: tabDatas[i]['text'],
-        icon: tabDatas[i]['icon'],
+        title: tabData[i]['text'],
+        icon: tabData[i]['icon'],
       ));
     }
     _pageController = PageController(initialPage: this._page);
@@ -68,7 +70,7 @@ class _MyHomePageState extends State<AppPage> with TickerProviderStateMixin {
       home: Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: Text("首页"),
+          title: Text("测试DEMO"),
         ),
         body: PageView(
           controller: _pageController,
@@ -76,7 +78,7 @@ class _MyHomePageState extends State<AppPage> with TickerProviderStateMixin {
             HomePage(),
             ProjectPage(),
             Text("c"),
-            Text("d"),
+            MyPage(),
           ],
           onPageChanged: _onPageChanged,
           physics: NeverScrollableScrollPhysics(),
