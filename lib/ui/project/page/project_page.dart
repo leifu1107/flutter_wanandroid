@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_wanandroid/ui/main/page/webview_page.dart';
 import 'package:flutter_wanandroid/ui/project/widget/item_project_widget.dart';
 import 'package:flutter_wanandroid/res/import_common.dart';
 import 'package:flutter_wanandroid/model/home/home_article_list_model.dart';
@@ -36,12 +37,17 @@ class _ProjectPageState extends State<ProjectPage>
           itemBuilder: (BuildContext context, int index) {
             return GestureDetector(
               onTap: () {
-                ToastUtil.show(homeArticleListModel.data.datas[index].projectLink);
-
+                // 使用 Navigator 跳转页面
+                Navigator.push(context, MaterialPageRoute(builder: (_) {
+                  return WebViewPage(
+                    url: homeArticleListModel.data.datas[index].link,
+                    title: homeArticleListModel.data.datas[index].title,
+                  );
+                }));
               },
               child: ItemProjectWidget(
                 title: homeArticleListModel.data.datas[index].title,
-                desc: homeArticleListModel.data.datas[index].title,
+                desc: homeArticleListModel.data.datas[index].desc,
                 time: homeArticleListModel.data.datas[index].niceDate,
                 imageUrl: homeArticleListModel.data.datas[index].envelopePic,
               ),

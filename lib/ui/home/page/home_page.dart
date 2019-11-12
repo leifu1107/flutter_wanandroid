@@ -49,12 +49,25 @@ class _HomePageState extends State<HomePage>
             )),
             SliverFixedExtentList(
               delegate: SliverChildBuilderDelegate(
-                  (context, index) => ItemHomeArticle(
-                        title: homeArticleListModel.data.datas[index].title,
-                        leftSubTitle:
-                            "作者:${homeArticleListModel.data.datas[index].author}",
-                        rightSubTitle:
-                            "时间:${homeArticleListModel.data.datas[index].niceDate}",
+                  (context, index) => GestureDetector(
+                        onTap: () {
+                          // 使用 Navigator 跳转页面
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (_) {
+                            return WebViewPage(
+                              url: homeArticleListModel.data.datas[index].link,
+                              title:
+                                  homeArticleListModel.data.datas[index].title,
+                            );
+                          }));
+                        },
+                        child: ItemHomeArticle(
+                          title: homeArticleListModel.data.datas[index].title,
+                          leftSubTitle:
+                              "作者:${homeArticleListModel.data.datas[index].author}",
+                          rightSubTitle:
+                              "时间:${homeArticleListModel.data.datas[index].niceDate}",
+                        ),
                       ),
                   childCount: homeArticleListModel.data.size),
               itemExtent: 70,
