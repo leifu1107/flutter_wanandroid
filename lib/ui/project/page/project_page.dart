@@ -29,7 +29,8 @@ class _ProjectPageState extends State<ProjectPage>
         child: Text("暂无数据"),
       );
     }
-    return Container(
+    return Material(
+        child: Container(
       child: ListView.builder(
           padding: EdgeInsets.all(10),
           itemExtent: 160,
@@ -53,7 +54,7 @@ class _ProjectPageState extends State<ProjectPage>
               ),
             );
           }),
-    );
+    ));
   }
 
 //加载首页文章列表
