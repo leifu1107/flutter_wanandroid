@@ -36,53 +36,51 @@ class _HomePageState extends State<HomePage>
 
     return Container(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Expanded(
-                child: CustomScrollView(
-              slivers: <Widget>[
-                //其它控件需要外层添加SliverToBoxAdapter
-                SliverToBoxAdapter(child: SwiperBanner(homeBannerModel)),
-                SliverToBoxAdapter(
-                    child: HeaderItem(
-                  title: "推荐项目",
-                  extra: "更多",
-                  onTap: () {
-                    ToastUtil.show("点击了");
-                  },
-                )),
-                SliverFixedExtentList(
-                  delegate: SliverChildBuilderDelegate(
-                      (context, index) => GestureDetector(
-                            onTap: () {
-                              // 使用 Navigator 跳转页面CupertinoPageRoute ios风格可以滑动返回;
-                              // MaterialPageRoute Android风格
-                              Navigator.push(context,
-                                  CupertinoPageRoute(builder: (_) {
-                                return WebViewPage(
-                                  url: homeArticleListModel
-                                      .data.datas[index].link,
-                                  title: homeArticleListModel
-                                      .data.datas[index].title,
-                                );
-                              }));
-                            },
-                            child: ItemHomeArticle(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Expanded(
+            child: CustomScrollView(
+          slivers: <Widget>[
+            //其它控件需要外层添加SliverToBoxAdapter
+            SliverToBoxAdapter(child: SwiperBanner(homeBannerModel)),
+            SliverToBoxAdapter(
+                child: HeaderItem(
+              title: "推荐项目",
+              extra: "更多",
+              onTap: () {
+                ToastUtil.show("点击了");
+              },
+            )),
+            SliverFixedExtentList(
+              delegate: SliverChildBuilderDelegate(
+                  (context, index) => GestureDetector(
+                        onTap: () {
+                          // 使用 Navigator 跳转页面CupertinoPageRoute ios风格可以滑动返回;
+                          // MaterialPageRoute Android风格
+                          Navigator.push(context,
+                              CupertinoPageRoute(builder: (_) {
+                            return WebViewPage(
+                              url: homeArticleListModel.data.datas[index].link,
                               title:
                                   homeArticleListModel.data.datas[index].title,
-                              leftSubTitle:
-                                  "作者:${homeArticleListModel.data.datas[index].author}",
-                              rightSubTitle:
-                                  "时间:${homeArticleListModel.data.datas[index].niceDate}",
-                            ),
-                          ),
-                      childCount: homeArticleListModel.data.size),
-                  itemExtent: 70,
-                )
-              ],
-            ))
+                            );
+                          }));
+                        },
+                        child: ItemHomeArticle(
+                          title: homeArticleListModel.data.datas[index].title,
+                          leftSubTitle:
+                              "作者:${homeArticleListModel.data.datas[index].author}",
+                          rightSubTitle:
+                              "时间:${homeArticleListModel.data.datas[index].niceDate}",
+                        ),
+                      ),
+                  childCount: homeArticleListModel.data.size),
+              itemExtent: 70,
+            )
           ],
-        ));
+        ))
+      ],
+    ));
   }
 
   //加载首页banner

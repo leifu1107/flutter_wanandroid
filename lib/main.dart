@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_wanandroid/ui/home/page/home_page.dart';
 import 'package:flutter_wanandroid/ui/my/page/my_page.dart';
+import 'package:flutter_wanandroid/ui/tag/page/tag_page.dart';
 import 'ui/project/page/project_page.dart';
 
 void main() => runApp(MyApp());
@@ -77,7 +78,7 @@ class _MyHomePageState extends State<AppPage> with TickerProviderStateMixin {
           children: <Widget>[
             HomePage(),
             ProjectPage(),
-            Text("c"),
+            TagPage(),
             MyPage(),
           ],
           onPageChanged: _onPageChanged,

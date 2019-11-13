@@ -15,12 +15,16 @@ class ItemProjectWidget extends StatelessWidget {
     return Material(
       child: InkWell(
         child: Container(
+          height: 160,
           padding: EdgeInsets.all(20),
           child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     Text(
                       title ?? "",

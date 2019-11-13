@@ -33,7 +33,9 @@ class _ProjectPageState extends State<ProjectPage>
         child: Container(
       child: ListView.builder(
           padding: EdgeInsets.all(10),
-          itemExtent: 160,
+
+          //内容适配
+          shrinkWrap: true,
           itemCount: homeArticleListModel.data.size,
           itemBuilder: (BuildContext context, int index) {
             return GestureDetector(
