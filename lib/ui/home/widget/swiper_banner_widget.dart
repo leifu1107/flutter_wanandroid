@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_wanandroid/ui/main/page/webview_page.dart';
 import 'package:flutter_wanandroid/util/swiper.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_wanandroid/model/home/home_banner_model.dart';
@@ -19,6 +21,14 @@ class SwiperBanner extends StatelessWidget {
           indicatorAlignment: AlignmentDirectional.topEnd,
           children: homeBannerModel.data.map((data) {
             return InkWell(
+              onTap: () {
+                Navigator.push(context, CupertinoPageRoute(builder: (_) {
+                  return WebViewPage(
+                    url: data.url,
+                    title: data.title,
+                  );
+                }));
+              },
               child: CachedNetworkImage(
                 imageUrl: data.imagePath,
                 fit: BoxFit.cover,

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_wanandroid/res/import_common.dart';
+import 'package:flutter_wanandroid/ui/home/page/tabbar_page.dart';
 import 'package:flutter_wanandroid/ui/home/widget/item_home_article_widget.dart';
 import 'package:flutter_wanandroid/util/head_item_widget.dart';
 import 'package:flutter_wanandroid/model/home/home_banner_model.dart';
@@ -48,7 +48,9 @@ class _HomePageState extends State<HomePage>
               title: "推荐项目",
               extra: "更多",
               onTap: () {
-                ToastUtil.show("点击了");
+                Navigator.push(context, CupertinoPageRoute(builder: (_) {
+                  return TabBarPage();
+                }));
               },
             )),
             SliverFixedExtentList(
